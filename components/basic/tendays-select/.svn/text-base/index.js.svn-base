@@ -1,0 +1,130 @@
+import React, { PropTypes } from 'react';
+import { DatePicker, Select } from 'antd';
+import moment from 'moment';
+const MonthPicker = DatePicker.MonthPicker;
+const Option = Select.Option;
+moment.locale('zh-cn');
+/**
+ * 组件属性申明
+ *
+ */
+const propTypes = {
+    // value: PropTypes.object.isRequired, // 时间段格式 [{ start: '22:00', end: '21:00' }, { start: '', end: '' }]
+};
+
+/**
+ * 完整组件
+ */
+export default class DateTenSelect extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            date: {
+                month: moment(),
+                month_type: this.getDefaultTen()
+            }
+        };
+    }
+
+    changeMonth(value) {
+        const { date } = this.state;
+        const newValue = {
+            ...date,
+            month: value
+        }
+
+        this.props.onChange && this.props.onChange(newValue);
+    }
+
+    changeMonthType(value) {
+        const { date } = this.state;
+        const newValue = {
+            ...date,
+            month_type: value
+        }
+
+        this.props.onChange && this.props.onChange(newValue);
+    }
+
+    componentWillMount() {
+        const { value } = this.props;
+        const date = {
+            ...this.state.date,
+            ...value,
+        }
+
+        if (!value) {
+            return;
+        }
+
+        this.setState({
+            date
+        });
+
+       this.props.onChange && this.props.onChange(date);
+    }
+
+    componentWillReceiveProps (nextProps) {
+        const { value } = nextProps;
+        const date = {
+            ...this.state.date,
+            ...value,
+        }
+
+        if (!value) {
+            return;
+        }
+
+        this.setState({
+            date
+        });
+    }
+
+    disabledDate(current) {
+        const { config: { availableDate } } = this.props;
+
+        if (availableDate.length) {
+            return current && (current.valueOf() < availableDate[0].unix()*1000 || current.valueOf() > availableDate[1].unix()*1000);
+        } else {
+            return false;
+        }
+    }
+
+    getDefaultTen() {
+        let tenSelected;
+        switch(moment().format('DD').slice(0, 1)) {
+            case '0':
+                tenSelected = '1';
+                break;
+            case '1':
+                tenSelected = '2';
+                break;
+            default:
+                tenSelected = '3';
+        }
+        return tenSelected;
+    }
+    
+    render() {
+        const { date: { month, month_type } } = this.state;
+        return (
+            <div>
+                <MonthPicker 
+                    value = { month } 
+                    style = {{ width: 100 }} 
+                    disabledDate = { this.disabledDate.bind(this) } 
+                    onChange = { this.changeMonth.bind(this) }/>
+                <Select  
+                    value = { month_type }
+                    style = {{ marginLeft: 10, width: 80 }} 
+                    onChange = { this.changeMonthType.bind(this) }>
+                    <Option value="1">上旬</Option>
+                    <Option value="2">中旬</Option>
+                    <Option value="3">下旬</Option>
+                </Select>
+			</div>
+        );
+    }
+}

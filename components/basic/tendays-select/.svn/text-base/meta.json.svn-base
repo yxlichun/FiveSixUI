@@ -1,0 +1,14 @@
+{
+    "name": "DateTenSelect",
+    "private": true,
+    "version": "0.1.0",
+    "description": "日期旬设置组件",
+
+    "author": "wj <micky_wj@126.com>",
+
+    "react": {
+        "components": [
+
+        ]
+    }
+}

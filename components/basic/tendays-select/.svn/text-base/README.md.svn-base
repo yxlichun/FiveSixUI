@@ -1,0 +1,20 @@
+DateTenSelect ```v0.1.0```
+================================
+
+### 安装
+```bash
+rctool install DateTenSelect
+```
+
+### 组件描述
+日期旬设置组件
+
+### 使用
+	import React from 'react';
+	import DateTenSelect from 'DateTenSelect';
+
+	const Example = () => (
+	    <DateTenSelect />
+	);
+
+	export default Example;
