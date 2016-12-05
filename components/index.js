@@ -1,1 +1,1 @@
-export { default as TenDaysSelect } from './tendays-select';
+export { default as TenDaysSelect } from './basic/tendays-select';

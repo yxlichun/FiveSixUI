@@ -1,6 +1,6 @@
 {
   "name": "fivesix",
-  "version": "0.0.1",
+  "version": "0.1.4",
   "title": "FiveSixUI",
   "description": "An enterprise-class UI design language and React-based implementation",
   "keywords": [
@@ -19,14 +19,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yxlichun/FiveSixUI.git"
+    "url": "https://github.com/yxlichun/FiveSixUI.git"
   },
   "bugs": {
     "url": "https://github.com/yxlichun/FiveSixUI/issues"
   },
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "files": [
-    "dist",
     "lib"
   ],
   "license": "MIT",
@@ -38,7 +37,9 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
     "babel-plugin-import": "^1.1.0",
     "babel-plugin-transform-es2015-parameters": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.15.0",
@@ -58,12 +59,14 @@
     "matchmedia-polyfill": "^0.3.0",
     "mocha": "^3.2.0",
     "sinon": "^1.17.6",
-    "symbol-tree": "^3.1.4"
+    "symbol-tree": "^3.1.4",
+    "webpack": "^1.13.3"
   },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./tests/index.js --require ignore-styles \"./tests/**/*.test.js\"",
     "lint": "npm run eslint && npm run lesshint",
     "eslint": "eslint tests scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' --ignore-pattern '!.eslintrc.js'",
-    "lesshint": "lesshint components -r scripts/lesshint-report.js"
+    "lesshint": "lesshint components -r scripts/lesshint-report.js",
+    "deploy": "babel components --out-dir lib"
   }
 }
