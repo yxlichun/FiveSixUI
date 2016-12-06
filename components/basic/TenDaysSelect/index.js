@@ -40,7 +40,7 @@ const propTypes = {
  * @class DateTenSelect
  * @extends {React.Component}
  */
-export default class DateTenSelect extends React.Component {
+export default class TenDaysSelect extends React.Component {
     /**
      * Creates an instance of DateTenSelect.
      * 

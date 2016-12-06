@@ -1,0 +1,53 @@
+.toolbar-con {
+    position: relative;
+    .fold-toolbar {
+        cursor: pointer;
+        width: 50px;
+        height: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #fff;
+        text-align: center;
+    }
+    .general-search-condition {
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: 35px;
+        font-size: 12px;
+        margin-left: 20px;
+        color: #ff2b4d; //#2db7f5;
+    }
+    button {
+        margin-top: 3px;
+    }
+
+    .ant-form-inline .ant-form-item {
+        margin-bottom: 5px;
+        margin-right: 20px;
+        margin-left: 20px;
+        label {
+            min-width: 60px;
+            display: inline-block;
+        }
+    }
+    .ant-form-inline .ant-btn {
+        margin-left: 20px;
+    }
+
+    .ant-form-inline .ant-select {
+        width: 143px;
+    }
+    // 处理带搜索框的多选单选Select
+    .ant-form-inline .ant-btn-icon-only {
+        margin-top: 0;
+        margin-left: 0;
+    }
+    ul {
+        margin-bottom: 0
+    } // 覆盖bootstrap.css的ul
+}

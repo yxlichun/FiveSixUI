@@ -1,0 +1,14 @@
+{
+    "name": "ImageView",
+    "private": true,
+    "version": "0.1.0",
+    "description": "添加组件描述",
+
+    "author": "zyh <498821924@qq.com>",
+
+    "react": {
+        "components": [
+
+        ]
+    }
+}

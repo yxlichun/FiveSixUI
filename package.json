@@ -1,6 +1,6 @@
 {
   "name": "fivesix",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "title": "FiveSixUI",
   "description": "An enterprise-class UI design language and React-based implementation",
   "keywords": [
@@ -30,7 +30,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "antd": "2.4.2",
+    "antd": "^2.5.1",
     "moment": "~2.15.1"
   },
   "devDependencies": {
@@ -49,16 +49,24 @@
     "chai-enzyme": "^0.6.1",
     "chai-jsx": "^1.0.1",
     "cheerio": "^0.22.0",
+    "css-loader": "^0.26.1",
     "cssom": "^0.3.1",
     "enzyme": "^2.6.0",
+    "file-loader": "^0.9.0",
     "ignore-styles": "^5.0.1",
     "is-subset": "^0.1.1",
     "jsdom": "^9.8.3",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "matchmedia-polyfill": "^0.3.0",
     "mocha": "^3.2.0",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.3.2",
+    "react-hot-loader": "^1.3.1",
+    "react-transform-hmr": "^1.0.4",
     "sinon": "^1.17.6",
+    "style-loader": "^0.13.1",
     "symbol-tree": "^3.1.4",
     "webpack": "^1.13.3"
   },

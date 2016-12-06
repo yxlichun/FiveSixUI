@@ -1,0 +1,38 @@
+.wl-tag {
+    display: inline-block;
+    background: #f2f2f2;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 3px;
+    cursor: default;
+    .wl-tag-text {
+        color: #666;
+    }
+    .wl-tag-close {
+        display:inline-block; 
+        width:12px; 
+        height:2px; 
+        background:#f00; 
+        font-size:0; 
+        line-height:0;
+        vertical-align:middle;
+        margin-top: -2px;
+        margin-left: 5px;
+        cursor: pointer;
+        -webkit-transform: rotate(45deg);
+    }
+    .wl-tag-close:after { 
+        content:'.'; 
+        display:block; 
+        width:12px; 
+        height:2px; 
+        background:#f00;
+        -webkit-transform: rotate(-90deg);
+    }
+}
+.wl-tag-selected {
+    background: #FF9EAE;
+    border: 1px solid #999;
+}

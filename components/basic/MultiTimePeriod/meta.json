@@ -1,0 +1,14 @@
+{
+    "name": "MultiTimePeriod",
+    "private": true,
+    "version": "0.1.0",
+    "description": "多个时间段设置组件",
+
+    "author": "wj <micky_wj@126.com>",
+
+    "react": {
+        "components": [
+
+        ]
+    }
+}
