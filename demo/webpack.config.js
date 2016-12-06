@@ -3,7 +3,7 @@ var path = require('path')
 
 module.exports = {
     entry : {
-        index: [ './client/static/js/index.js' ],
+        index: [ path.join(__dirname, './client/static/js/index.js') ],
     },
     output : {
         path : __dirname + '/output/js/',

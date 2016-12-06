@@ -5,7 +5,7 @@
  * @version 0.0.1
  */
 import React, { PropTypes } from 'react';
-import Tag from 'comp/Tag';
+import Tag from '../Tag';
 
 import './styles.less';
 

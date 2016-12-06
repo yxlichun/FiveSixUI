@@ -7,10 +7,13 @@
 *       函数提纯
 */
 import React, {Component, PropTypes} from 'react';
-import {DropdownMenu, OptGroup, Option, SearchInput, SelectInput, Tips} from './Components';
+import comp from './Components';
 import _ from 'lodash';
+import $ from 'jquery';
 import {findDOMNode} from 'react-dom';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+const {DropdownMenu, OptGroup, Option, SearchInput, SelectInput, Tips} = comp
 /**
  * 组件属性申明
  *
