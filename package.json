@@ -30,10 +30,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "antd": "^2.4.2",
-    "moment": "~2.15.1",
-    "react": "^15.3.2",
-    "react-dom": "^15.4.1"
+    "antd": "2.4.2",
+    "moment": "~2.15.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -58,6 +56,8 @@
     "jsdom": "^9.8.3",
     "matchmedia-polyfill": "^0.3.0",
     "mocha": "^3.2.0",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
     "sinon": "^1.17.6",
     "symbol-tree": "^3.1.4",
     "webpack": "^1.13.3"
