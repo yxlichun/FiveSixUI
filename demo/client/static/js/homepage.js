@@ -1,6 +1,5 @@
 import React, { Component, PropTypes} from 'react';
 import { Crumb, ImageModal } from 'comp';
-
 export default class Homepage extends Component { 
     render() {
         return (
