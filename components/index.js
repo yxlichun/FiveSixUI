@@ -1,6 +1,6 @@
 // export { default as CommonNav } from './basic/CommonNav';
 // export { default as CommonToolbar } from './basic/CommonToolbar';
-// export { default as Crumb } from './basic/Crumb';
+export { default as Crumb } from './basic/Crumb';
 // export { default as DataTable } from './basic/DataTable';
 // export { default as ImageModal } from './basic/ImageModal';
 // export { default as ImageView } from './basic/ImageView';

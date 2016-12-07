@@ -3,18 +3,19 @@
  *       modified by zhangcongfeng<zhangcongfeng@iwaimai.baidu.com>
  * 
  * @author lichun <lichun@iwaimai.baidu.com>
- * @version 0.0.1
+ * @version 0.1.0
  * 
  */
 import React, { Component, PropTypes} from 'react';
 import { Breadcrumb } from 'antd';
 
+import './styles.less';
 /**
  * 组件属性申明
- * @property {array} config 面包屑数组(必要) [{title: '骑士管理'},{title: '装备管理'}]
+ * @property {array} data 面包屑数组(必要) [{title: '骑士管理', link: ''},{title: '装备管理'}]
  */
 const propTypes = {
-    config: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired
 }
 
 /**
@@ -31,24 +32,18 @@ export default class Crumb extends React.Component {
      * @memberOf Crumb
      */
     getItems(config) {
-        const items = [];
-        const firstItem = config[0].title;
-        firstItem.indexOf('当前位置') === -1 && (config[0].title = '当前位置：' + firstItem);
-        config.map((item, index) => {
-            items.push(
-                <Breadcrumb.Item key = { index } >
-                    { item.title }
-                </Breadcrumb.Item>
-            )
-        });
-        return items;
+        return config.map((item, index) => 
+            <Breadcrumb.Item key = { index } >
+                { item.link ? <a href={item.link}>{ item.title }</a> : item.title }
+            </Breadcrumb.Item>
+        );
     }
     render() {
-        const { config } = this.props;
         return (
-            <div className="crumb">
+            <div className="wl-crumb">
+                <span>当前位置：</span>
                 <Breadcrumb>
-                { this.getItems(config) }
+                    { this.getItems(this.props.data) }
                 </Breadcrumb>
             </div>
         );

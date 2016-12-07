@@ -16,12 +16,12 @@ import './styles.less';
  * @property {bool} closable 是否可关闭， default = true
  */
 const propTypes = {
-    value: PropTypes.any.isRequired,
-    onClick: PropTypes.func,
-    onClose: PropTypes.func,
-    selected: PropTypes.bool,
-    closable: PropTypes.bool,
-}
+  value: PropTypes.any.isRequired,
+  onClick: PropTypes.func,
+  onClose: PropTypes.func,
+  selected: PropTypes.bool,
+  closable: PropTypes.bool,
+};
 
 /**
  * 主组件
@@ -32,68 +32,70 @@ const propTypes = {
  * 
  */
 export default class Tag extends React.Component {
-	/**
-	 * Creates an instance of Tag.
-	 * 
-	 * @param {any} props
-	 * 
-	 * @memberOf Tag
-	 */
-	constructor(props) {
-		super(props);
-	}
+  /**
+  * Creates an instance of Tag.
+  * 
+  * @param {any} props
+  * 
+  * @memberOf Tag
+  */
+  constructor(props) {
+    super(props);
+  }
 
-    /**
-     * 组件属性申明
-     * 
-     * @type {propTypes}
-     * @memberOf Tag
-     */
-    propTypes: propTypes
+  /**
+   * 组件属性申明
+   * 
+   * @type {propTypes}
+   * @memberOf Tag
+   */
+  propTypes: propTypes
 
-    /**
-     * 点击tag
-     * 
-     * @param {any} e
-     * @param {any} value
-     * 
-     * @memberOf Tag
-     */
-    handlerClick(e, value) {
-        e && e.stopPropagation();
-        const { onClick, selected } = this.props;
-        onClick && onClick(value, !selected);
-    }
-    /**
-     * 关闭tag
-     * 
-     * @param {any} e
-     * @param {any} value
-     * 
-     * @memberOf Tag
-     */
-    handlerClose(e, value) {
-        e && e.stopPropagation();
-        const { onClose } = this.props;
-        onClose && onClose(value);
-    }
-	render() {
-        const { value, selected, closable } = this.props;
+  /**
+   * 点击tag
+   * 
+   * @param {any} e
+   * @param {any} value
+   * 
+   * @memberOf Tag
+   */
+  handlerClick(e, value) {
+    e && e.stopPropagation();
+    const { onClick, selected } = this.props;
+    onClick && onClick(value, !selected);
+  }
+  /**
+   * 关闭tag
+   * 
+   * @param {any} e
+   * @param {any} value
+   * 
+   * @memberOf Tag
+   */
+  handlerClose(e, value) {
+    e && e.stopPropagation();
+    const { onClose } = this.props;
+    onClose && onClose(value);
+  }
+  render() {
+    const { value, selected, closable } = this.props;
 
-		return (
-            <div 
-                data-value = { value }
-                className = { selected ? "wl-tag wl-tag-selected" : "wl-tag"}
-                onClick = {(e) => this.handlerClick(e, value) }
-                >
-                <span className="wl-tag-text">
-                    {this.props.children}
-                </span>
-                { typeof closable === 'undefined' || closable === true? 
-                    <span 
-                        className = "wl-tag-close"
-                        onClick = {(e) => this.handlerClose(e, value) }></span> : '' }
-            </div>
-        );
-	}
+    return (
+      <div 
+        data-value={value}
+        className={selected ? 'wl-tag wl-tag-selected' : 'wl-tag'}
+        onClick={e => this.handlerClick(e, value)}
+      >
+        <span className="wl-tag-text">
+          {this.props.children}
+        </span>
+        {typeof closable === 'undefined' || closable === true ?  
+          <span 
+            className="wl-tag-close"
+            onClick={e => this.handlerClose(e, value)} 
+          /> : ''
+        }
+      </div>
+    );
+  }
 }
