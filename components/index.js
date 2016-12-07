@@ -2,7 +2,7 @@
 // export { default as CommonToolbar } from './basic/CommonToolbar';
 export { default as Crumb } from './basic/Crumb';
 // export { default as DataTable } from './basic/DataTable';
-// export { default as ImageModal } from './basic/ImageModal';
+export { default as ImageModal } from './basic/ImageModal';
 // export { default as ImageView } from './basic/ImageView';
 // export { default as MileStep } from './basic/MileStep';
 // export { default as MultiTimePeriod } from './basic/MultiTimePeriod';

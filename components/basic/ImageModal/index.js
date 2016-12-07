@@ -12,14 +12,14 @@ const ButtonGroup = Button.Group;
 /**
  * 组件属性申明
  * 
- * @property {string} filename 图片跳转链接
+ * @property {string} src 图片跳转链接
  * @property {bool} show 是否显示组件， default = false
- * @property {func} closeAction 关闭查看器组件事件【无参】
+ * @property {func} onClose 关闭查看器组件事件【无参】
  */
 const propTypes = {
-    filename: PropTypes.string,
+    src: PropTypes.string,
     show: PropTypes.bool,
-    closeAction: PropTypes.func
+    onClose: PropTypes.func
 };
 const DEFAULT_WIDTH = 300;
 const MAX_WIDTH = 1000;
@@ -133,32 +133,31 @@ export default class ImageModal extends React.Component {
      * 
      * @memberOf ImageModal
      */
-    closeHandler() {
-        const { closeAction } = this.props;
-        closeAction && closeAction();
+    closeHandler(onClose) {
+        onClose && onClose();
     }
 
     render() {
         const { width, deg } = this.state;
-        const { show, filename } = this.props;
+        const { show, src, onClose } = this.props;
 
         return  (
             <div className="wl-imagemodal-wrapper">
                 { show ? (
-                    <Modal visible={ show || false } onCancel={ this.closeHandler.bind(this) }
+                    <Modal visible={ show || false } onCancel={ () => this.closeHandler(onClose) }
                         wrapClassName="wl-imagemodal-show"
                         footer={ null }
                         width={ width+32 }
-                        style={{
-                            transform: 'rotate('+deg+'deg)'
-                        }}>
+                    >
                         
-                        <div className="wl-imagemodal-divImg" style={ { width: width } }>
+                        <div className="wl-imagemodal-divImg" style={ { width } }>
                             <img 
-                                src={ filename || '' } 
+                                src={ src } 
                                 style={{
                                     width: width,
-                                }}/>
+                                    transform: 'rotate('+deg+'deg)'
+                                }}
+                            />
                         </div>
                     </Modal>
                 ) : ''}
