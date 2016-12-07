@@ -1,5 +1,6 @@
 /**
  * @file 复合组件，图片查看器，可放大、缩小、顺时针和逆时针旋转
+ *       modified by lichun<lichun@iwaimai.baidu.com> 修改为使用包裹子元素的方式，修改旋转主体；
  * @author lihuan <lihuan@iwaimai.baidu.com>
  * @version 0.0.1
  */
@@ -128,23 +129,33 @@ export default class ImageModal extends React.Component {
         })
     }
 
-    /**
-     * 关闭当前modal
-     * 
-     * @memberOf ImageModal
-     */
-    closeHandler(onClose) {
+    handleClose(onClose) {
+        this.setState({
+            show: true
+        })
         onClose && onClose();
     }
 
+    handleOpen(onOpen) {
+        this.setState({
+            show: false
+        })
+        onOpen && onOpen();
+    }
+
     render() {
-        const { width, deg } = this.state;
-        const { show, src, onClose } = this.props;
+        const { show, width, deg } = this.state;
+        const { src, onOpen, onClose } = this.props;
 
         return  (
             <div className="wl-imagemodal-wrapper">
+                <div
+                    onClick = {() => this.handleOpen(onOpen)}
+                >
+                    { this.props.children }
+                </div>
                 { show ? (
-                    <Modal visible={ show || false } onCancel={ () => this.closeHandler(onClose) }
+                    <Modal visible={ show || false } onCancel={ () => this.handleClose(onClose) }
                         wrapClassName="wl-imagemodal-show"
                         footer={ null }
                         width={ width+32 }
